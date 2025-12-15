@@ -18,3 +18,4 @@ Then run:
 docker run --env-file /etc/typescript-express-app -p 3000:9000 typescript-express-app
 
 
+docker-compose up --build (if we have docker compose yml)
