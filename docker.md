@@ -19,3 +19,22 @@ docker run --env-file /etc/typescript-express-app -p 3000:9000 typescript-expres
 
 
 docker-compose up --build (if we have docker compose yml)
+
+
+
+============================================================================
+
+  1. Stopped all existing containers
+  docker stop $(docker ps -q)
+  2. Cleared Docker cache completely
+  docker system prune -f && docker builder prune -f
+  2. This freed up 21.46GB of stale cache/build layers that may have been corrupted or outdated.
+  3. Force rebuilt with --no-cache
+  docker-compose build --no-cache api dashboard
+  3. This ensured fresh builds without using any cached layers.
+  4. Then started fresh
+  docker-compose up -d
+
+  Most Likely Cause of Your Issue
+
+============================================================================
